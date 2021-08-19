@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div id="root"> </div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+    <script>
+
+        const root = document.getElementById('root')
+
+        //Os atributos dos elementos HTML são chamados pelo React de PROPS
+        //podem ser representados por meio de um objeto 
+        const props = {
+            id: 'div1',
+            children: 'Meu primeiro elemento feito em React ', //+-equivalente ao textcontent
+            style: {backgroundColor: 'limegreen', border: '2px solid blue'}
+        }
+
+        //criando elemento usando react
+        const primeiraDiv = React.createElement('div', props)
+
+        //Colocando a primeira div dentro da div "root"
+        ReactDom.render(primeiraDiv, root) //desenha a primeira div dentro do root
+
+    </script>
+</body>
+</html>
