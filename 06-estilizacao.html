@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="06.css">
+    <title>Document</title> 
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <hr>
+
+    <div class="box box--medium" style="background-color: yellow; font-style:italic">Box médio feito em HTML</div>
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <script type="text/babel">
+        /*POdemos aplicar mais de uma classe a um componente usando o atributo class Nmae 
+        /* Regas para o uso to atributo style em JSX
+            1 - Style n pode ser string, deve ser um objeto representando as regras a serem aplicadas entre chaves duplas {{}}
+            2 - O nome das regras n pode ter hifén, como em CSS. usa se CamlCase em vez disso; explo: background-color em Css tornase backgroundColor em JSX
+            3 - Os valores das propriedads não numericas devem vir entre aspas
+
+
+        */
+        
+        const smallBox =
+            <div className="box box--small" style={ { backgroundColor:'lightblue', fontStyle: 'italic'} }>
+                Small Box
+            </div>
+
+        const mediumBox =
+            <div className="box box--medium" style={ { backgroundColor:'pink',color: 'blue', fontWeight:'bold'} }>
+                Medium Box
+            </div>
+
+        let estilo = {
+            backgroundColor: 'orange',
+            fontSize: '30px',
+            fontFamily: '"Courier New", monospace'
+        }
+
+        const largeBox =
+            <div className="box box--large" style={estilo}>
+                Large Box
+            </div>
+
+            const BoxItalic = ({style, size, ...props})=>(
+                <div className={`box box--${size}`}style={{ fontStyle: 'italic', ...style} }{...props} />
+            )
+
+        const container =
+                <>
+                {smallBox} 
+                {mediumBox}
+                {largeBox}
+                <BoxItalic size="medium" style={{ backgroundColor: 'tomato'}}>
+                     Box médio via componente 
+                 </BoxItalic>
+                </>
+
+            ReactDOM.render(container, document.getElementById('root'))
+    </script>
+</body>
+
+</html>
