@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body> 
-    <div id="root"> </div>
+    <div id="root" style="border: 1px solid red"> </div>
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
@@ -26,9 +26,38 @@
         //criando elemento usando react
         const primeiraDiv = React.createElement('div', props)
 
-        //Colocando a primeira div dentro da div "root"
-        ReactDom.render(primeiraDiv, root) //desenha a primeira div dentro do root
+        //Criando um paragrafo com props diretamente no createElement
+        const parag = React.createElement('p', {
+            children: 'Paragrafo criado com React',
+            style: {color: 'blue'}
+        })
 
+        const parag2 = React.createElement('p', {
+            children: 'Paragrafo 2',
+            style: {color: 'blue'}
+        })
+
+        //Criando uma div de forma fapida usando React.createElement
+        //com três parametro
+        //1 parametro tipo de elemento
+        // 2 parametro props se não existirem pode ser null
+        // 3 parametro children
+        const segundaDiv = React.createElement('div', null, 'Div criada rapidamente no React')
+
+        //criando uma div container, que contém os demais elementos 
+        //dentro dela (vanos colocar os eles em um vetor e passar na div ´container´)
+        const container = React.createElement('div', null, [
+            primeiraDiv,
+            parag,
+            segundaDiv
+        ])
+
+
+         //Colocando a primeira div dentro da div "root" //render sobrescreve só aparece o ultimo //container neles
+        ReactDOM.render(primeiraDiv, root) //desenha a primeira div dentro do root
+        ReactDOM.render(parag, root)
+        //renderizando o container com geral
+        ReactDOM.render(container, root)
     </script>
 </body>
 </html>
