@@ -50,8 +50,10 @@
             <div className="box box--large" style={estilo}>
                 Large Box
             </div>
-
-            const BoxItalic = ({style, size, ...props})=>(
+            /*  
+            Comopnente que tem tanto prpos personalizados (style e size) quanto props padrão
+            */
+            const BoxItalic = ({style, size = 'smal', ...props})=>( //valor padrão 
                 <div className={`box box--${size}`}style={{ fontStyle: 'italic', ...style} }{...props} />
             )
 
@@ -60,8 +62,14 @@
                 {smallBox} 
                 {mediumBox}
                 {largeBox}
-                <BoxItalic size="medium" style={{ backgroundColor: 'tomato'}}>
+                <BoxItalic id="box1" size="medium" style={{ backgroundColor: 'tomato'}}>
                      Box médio via componente 
+                 </BoxItalic>
+                 <BoxItalic id="box2" size="large" style={{ backgroundColor: 'white'}}>
+                     Box grande via componente 
+                 </BoxItalic>
+                 <BoxItalic id="box3" style={{ backgroundColor: 'limegreen', fontWeight: 'bold'}}>
+                     Boxpq Comp.
                  </BoxItalic>
                 </>
 
@@ -69,4 +77,4 @@
     </script>
 </body>
 
-</html>
+</html> 
