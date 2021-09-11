@@ -2,14 +2,12 @@ import { BrowserRouter, Route, Switch, Link} from 'react-router-dom'
 import Teste1 from './exercicios/Teste1'
 import Teste2 from './exercicios/Teste2'
 import Exercicio01 from './exercicios/01'
+import Exercicio02 from './exercicios/02'
 
 export default function App(){
   return(
     <>
       <h1>React Hooks</h1>
-
-
-
       <BrowserRouter>
       <blockquote>
           <em>Hooks</em> são funções especiais do React que 
@@ -23,6 +21,7 @@ export default function App(){
           <li><Link to="teste1"> Primeiro teste </Link> </li>
           <li> <Link to="teste2"> Segundo teste </Link>  </li>
           <li> <Link to="ex01"> Exercicio 01 </Link>  </li>
+          <li> <Link to="ex02"> Exercicio 02 </Link>  </li> 
       </ul> 
 
         <Switch>
@@ -35,6 +34,9 @@ export default function App(){
           </Route>
           <Route path="ex01">
               <Exercicio01 /> 
+          </Route> 
+          <Route path="ex02">
+              <Exercicio02 /> 
           </Route> 
         </Switch>
       </BrowserRouter>
