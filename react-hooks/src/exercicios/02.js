@@ -16,18 +16,27 @@ export default function Exercicio02() {
     //Para isso, no useState(), em vez de passarmos um valor
     //passamos uma func que retorna um valor
     const [name, setName] = React.useState(
-        () =>getNameCoockie() || ''
+        () => getNameCookie () || ''
     )
 
+    const [count, setCount] = React.useState(0)
+
+    function getNameCookie (event){
+        console.log("Getting cookies")
+        return localStorage.getItem("react-name")
+    }
+
     function handleChange(event){
-        //Atualize o nome aqui usando event.target.value
         setName(event.target.value)
     }
 
     //Esta função é chamada após qualquer atualização de componente
     //qualquer atualização do componente 
     //Aramazenar o valor da variavel de estado "nome " em um cookie (localStorage)
-    React.useEffect(() => window.localStorage.setItem('react-name'), name)
+    React.useEffect(()=> {
+        window.localStorage.setItem('react-name', name)
+        setCount(count + 1)
+    }, [name])
 
     return (
         <div>
@@ -36,5 +45,9 @@ export default function Exercicio02() {
                 <input onChange={handleChange} id="name" />
             </form>
             {name ? <strong>Hello {name}</strong> : 'Please type your name'}
-        </div>)
+            <div>
+                Chamadas a useEffect(): {count}
+             </div>
+        </div> 
+       )
 }
