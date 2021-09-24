@@ -12,6 +12,11 @@ export default function Exercicio02() {
        () => getNameCookie() || ''
     )
 
+    //variavel de estado para contar
+    // de atualizaçãoes de estados
+    //chamadas use
+    const [count, setCount] = React.useState(0)
+
     function getNameCookie(){
         console.log("Getting cookie")
         return localStorage.getItem("react-name")
@@ -24,8 +29,17 @@ export default function Exercicio02() {
 
     //Essa função será chamada apos qqr autorização do componente
     //local storage e do js pega o cookie (em um cookie localStorage)
-    React.useEffect(()=> window.localStorage.setItem
-    ('react-name', name))
+    /*
+      o hook useEffect() aceita dois parametros
+      1 uma função q será executada como efeito colateral de uma atualização de estado
+      2 um vetor de dependecias no qual devem ser especificadas as varaivels de estado
+      cuja a ataulização será monitorada para a execução da função do primeiro parametor
+    */
+
+    React.useEffect(()=> {
+     window.localStorage.setItem ('react-name', name)
+     setCount(count + 1)
+    }, [name])
 
     return (
         <div>
