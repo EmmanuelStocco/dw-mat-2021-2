@@ -59,6 +59,10 @@ function App() {
         <Exercicio03 />
       </Route>
 
+      <Route path="/ex04">
+        <Exercicio04 />
+      </Route>
+
       </Switch>
       
 
