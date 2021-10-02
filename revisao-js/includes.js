@@ -1,22 +1,23 @@
-const carros = ['fusca', 'chevette', 'opala', '147', 'polara', 'brasilia', 'corcel']
+const carros = ['Fusca', 'Chevette', 'Opala', '147', 'Polara', 'Brasília', 'Corcel']
 
-//determinar se polara existe no vetor
+// Determinar se Polara existe no vetor
 
-function temPolara(vetor){
-    for(let i = 0; i < vetor.length;i++){
-        if(vetor[i] === 'Polara') return true
-    } 
-    return false
+function temPolara(vetor) {
+  for(let i = 0; i < vetor.length; i++) {
+    if(vetor[i] === 'Polara') return true
+  }
+  return false
 }
 
-function temBelina(vetor){
-    for(let i = 0; i < vetor.length; i++){
-        if(vetor[i] === 'Belina') return true
-    } 
-    return false
+function temBelina(vetor) {
+  for(let i = 0; i < vetor.length; i++) {
+    if(vetor[i] === 'Belina') return true
+  }
+  return false
 }
 
-console.log('tem polara', PemPolara(carros))
-console.log('tem Belina', temBelina(carros))
+console.log('Tem Polara?', temPolara(carros))
+console.log('Tem Belina?', temBelina(carros))
 
-console.log('inclui Opala? ', carros.includes('Opala'))
+console.log('Inclui Opala?', carros.includes('Opala'))
+console.log('Inclui Variant?', carros.includes('Variant'))

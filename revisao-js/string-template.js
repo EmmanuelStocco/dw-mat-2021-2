@@ -1,7 +1,15 @@
-let nome = 'Facibúquisson'
-let idade= 19
+// Em JS, strings comuns podem ser escritas entre aspas simples
+// ou aspas duplas
+let nome = 'Feicibúquisson'
+let idade = 17
+let cidade = "Franca/SP"
 
-console.log(' meu nome é ' + nome)
-console.log(`meu nome ${nome} e minha idade é ${idade}`)
+// Exibindo informações com concatenação de strings
+console.log('Meu nome é ' + nome + ', tenho ' + idade + " anos e moro em " + cidade + ".")
 
-console.log(`meu nome ${nome.toUpperCase()} e minha idade é ${idade}`)
+// Usando string template - strings delimitadas por ` (acentos grave ou "crases")
+console.log(`Meu nome é ${nome}, tenho ${idade} anos e moro em ${cidade}.`)
+
+console.log(`Meu nome é ${nome.toUpperCase()}, tenho ${idade} anos e moro em ${cidade}.`)
+
+console.log(`Daqui a 5 anos minha idade será ${idade + 5} anos.`)

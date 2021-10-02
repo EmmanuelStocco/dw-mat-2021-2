@@ -3,21 +3,18 @@ let senha = 'SaudadesDoOrkut'
 let nomeCompleto = 'Orkutilson Faleiros Bittar da Silva'
 let idade = 19
 
+// Criação de objeto cujo valor das propriedades vêm de
+// variáveis previamente existentes
 let infoUsuario = {
-    usuario: usuario,
-    nome: nomeCompleto,
-    senha: senha,
-    idade: idade
+  //usuario: usuario,
+  usuario,  // Propriedade abreviada (usuario: usuario)
+  nome: nomeCompleto,
+  senha, //senha: senha
+  idade  //idade: idade
 }
 
-let infoUsuario2 = {
-    usuario,
-    nome: nomeCompleto,
-    senha,
-    idade
-}
+console.log(infoUsuario)
 
-console.log(infoUsuario2)
-
-//exibindo variaveis em depuração -> nome da var com seu valor
+// Propriedades abreviadas são úteis em depuração para exibir
+// o nome da variável junto com o seu valor
 console.log({idade, senha})
