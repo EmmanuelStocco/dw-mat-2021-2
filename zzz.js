@@ -17,3 +17,8 @@ const props = {
 
 const primeiraDiv = React.createElement('div', props) //criar elemento div com esses elementos
 
+//com babel 
+const props = <div className="x" id="div1" style={"backgroundColor: blue"}>Com Babel</div>
+
+const div3 = <div {...props}></div>
+const container = React.createElement('div', null, [div3])
