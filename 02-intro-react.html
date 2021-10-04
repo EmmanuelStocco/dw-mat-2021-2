@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
-<body> 
-    <div id="root" style="border: 1px solid red"> </div>
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<body>
+  
+  <div id="root" style="border: 1px solid red"></div>
 
-    <script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
 
-        const root = document.getElementById('root')
+  <script>
 
-        //Os atributos dos elementos HTML são chamados pelo React de PROPS
-        //podem ser representados por meio de um objeto 
-        const props = {
-            id: 'div1',
-            children: 'Meu primeiro elemento feito em React ', //+-equivalente ao textcontent
-            style: {backgroundColor: 'limegreen', border: '2px solid blue'}
-        }
+    const root = document.getElementById('root')
 
-        //criando elemento usando react
-        const primeiraDiv = React.createElement('div', props)
+    // Os atributos dos elementos HTML são chamados pelo React de PROPS
+    // e podem ser representados por meio de um objeto
+    const props = {
+      id: 'minhaDiv',
+      children: 'Meu primeiro elemento feito em React',  // textContent
+      style: {backgroundColor: 'limegreen', border: '2px solid blue'}
+    }
 
-        //Criando um paragrafo com props diretamente no createElement
-        const parag = React.createElement('p', {
-            children: 'Paragrafo criado com React',
-            style: {color: 'blue'}
-        })
+    // Criando o elemento usando React
+    const primeiraDiv = React.createElement('div', props)
 
-        const parag2 = React.createElement('p', {
-            children: 'Paragrafo 2',
-            style: {color: 'blue'}
-        })
+    // Criando um parágrafo com props diretamente no createElement
+    const parag = React.createElement('p', {
+      children: 'Parágrafo criado com React',
+      style: { color: 'blue' }
+    })
 
-        //Criando uma div de forma fapida usando React.createElement
-        //com três parametro
-        //1 parametro tipo de elemento
-        // 2 parametro props se não existirem pode ser null
-        // 3 parametro children
-        const segundaDiv = React.createElement('div', null, 'Div criada rapidamente no React')
+    // Criando uma div de forma rápida usando React.createElement
+    // com três parâmetros
+    // 1º parâmetro: tipo de elemento
+    // 2º parâmetro: props (se não existirem, pode ser null)
+    // 3º parâmetro: children
+    const segundaDiv = React.createElement('div', null, 'Div criada rapidamente no React')
 
-        //criando uma div container, que contém os demais elementos 
-        //dentro dela (vanos colocar os eles em um vetor e passar na div ´container´)
-        const container = React.createElement('div', null, [
-            primeiraDiv,
-            parag,
-            segundaDiv
-        ])
+    // Criando uma div container, que contém os demais elementos
+    // dentro dela
+    const container = React.createElement('div', null, [
+      primeiraDiv,
+      parag,
+      segundaDiv
+    ])
 
+    // Colocando o container dentro da div "root"
+    ReactDOM.render(container, root)
+    
+  </script>
 
-         //Colocando a primeira div dentro da div "root" //render sobrescreve só aparece o ultimo //container neles
-        ReactDOM.render(primeiraDiv, root) //desenha a primeira div dentro do root
-        ReactDOM.render(parag, root)
-        //renderizando o container com geral
-        ReactDOM.render(container, root)
-    </script>
 </body>
 </html>
