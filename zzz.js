@@ -32,3 +32,15 @@ const container =
     <>
         <Soma n1={14} n2={20} id="props" />
     </>
+
+
+const box = <div className="box">Box</div>
+const container = <> {box} </>
+ReactDOM.render(container, document.getElementById('root'))
+
+//para passar stylecss direto no react, primeiro precisamos arir 1 par de chaves para indicar variavel e outro par para os atributos
+//quando o css puro usar hifen no react vai de camel case
+//background-color -> backgroundColor
+const smallBox = <div className='box' style={ { backgroundColor: 'lightblue', fontStyle: 'italic'}}>
+    Small Box
+</div>
