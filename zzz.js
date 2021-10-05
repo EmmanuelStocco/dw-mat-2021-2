@@ -1,3 +1,5 @@
+//https://github.com/fcintra4/pw-mat-2021-2/blob/master/06-estilizacao.html
+
 const horaAtual = () => new Date()
 console.log('Hora atual', horaAtual())
 
@@ -22,3 +24,11 @@ const props = <div className="x" id="div1" style={"backgroundColor: blue"}>Com B
 
 const div3 = <div {...props}></div>
 const container = React.createElement('div', null, [div3])
+
+
+const Soma = ({n1, n2, ...props})=> <div className="css" {...props}>{n1 + n2}</div> 
+
+const container = 
+    <>
+        <Soma n1={14} n2={20} id="props" />
+    </>
