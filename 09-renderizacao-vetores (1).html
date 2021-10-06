@@ -15,6 +15,7 @@
 
   <script type="text/babel">
 
+    // Vetor de objetos contendo as frutas e seus ícones  
     const allItems = [
       {id: 'apple', value: '🍎 apple'},
       {id: 'orange', value: '🍊 orange'},
@@ -22,15 +23,27 @@
       {id: 'pear', value: '🍐 pear'},
     ]
 
-    function Fruits() {
+    function Fruits() {   // Função de componente
+
+      // Variável de estado "items", que mantém a lista das frutas
+      // exibidas na página.
+      // Seu valor inicial é o vetor allItems
       const [items, setItems] = React.useState(allItems)
 
+      // Função chamada pelo botão "add item"
       function addItem() {
+        // Cria um vetor contendo apenas os ids dos itens exibidos,
+        // usando map()
         const itemIds = items.map(i => i.id)
+        // Procura no vetor allItems pela primeira fruta que AINDA
+        // NÃO ESTÁ SENDO EXIBIDA e insere em items
         setItems([...items, allItems.find(i => !itemIds.includes(i.id))])
       }
 
+      // Função chamada pelos botões "remove"
       function removeItem(item) {
+        // Remove o item selecionado usando filter() para gerar
+        // um novo vetor de itens, sem o item excluído
         setItems(items.filter(i => i.id !== item.id))
       }
 
