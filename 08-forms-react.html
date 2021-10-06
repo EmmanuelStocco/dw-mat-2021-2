@@ -1,64 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
+  
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+
+    const MeuForm = () => {
+
+      
+
+      /*
+        Variáveis de estado são variáveis especiais que preservam
+        seu valor mesmo quando o React redesenha o componente devido
+        a alguma alteração de conteúdo.
+        Variáveis estado são criadas por meio do hook setState().
+      */
+
+      //let nome
+
+      // nome -> é a variável de estado (somente leitura)
+      // setNome -> é uma função que deve ser usada para mudar
+      //            o valor da variável de estado 
+      // Dentro dos parênteses do useState(), DEVE ser informado
+      // um valor inicial para a variável de estado
+      let [nome, setNome] = React.useState('')
+
+      function handleChange(event) {
+        // nome = event.target.value
+
+        // Armazenado o nome convertido para letras maiúsculas
+        //nome = event.target.value.toUpperCase()
+        setNome(event.target.value.toUpperCase())
+
+        // setNome(document.getElementById('campo-nome').value.toUpperCase())
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault()
+        alert(`Olá, ${nome}!`)
+      }
+
+      return (
+        <form onSubmit={handleSubmit}>
+          {/*
+            Em JSX, o atributo HTML "for" passa a ser "htmlFor"
+            já que "for" é uma palavra reservada do JavaScript.
+          */}
+          <label htmlFor="campo-nome">Informe seu nome:</label><br />
+          <input id="campo-nome" onChange={handleChange} value={nome} /><br />
+          <div>Variável nome: {nome}</div>
+          <button type="submit">Enviar</button>
+        </form>
+      )
     
-    <div id="root"></div>
+    }
 
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <script type="text/babel">
-            const MeuForm = () => {
+    ReactDOM.render(<MeuForm />, document.getElementById('root'))
 
-                //let nome
+  </script>
 
-                /*
-                    Variavies de estado são variaveis especiais q preservam seu valor
-                    msm quando o React redesenha o componente devido a alguma alteração de conteudi
-                
-                    sao craidas por meio do hook setState()
-                */
-
-                //let nome
-                //nome => a variavel de estado (somenete leitura)
-                //setState -> é uma fiunção q deve ser usada para mudar o valor da varaivel
-                let [nome, setNome] = React.useState()
-
-                function handleChange(event){
-                   // nome = event.target.value
-
-                   //Armazenado o nome convertido para letras maiusculas
-                   // nome = event.target.value.toUpperCase()
-                   setNome(event.target.value.toUpperCase())
-                }
-
-                function handleSubmit(event){
-                    event.preventDefault()
-                    alert(`Olá, ${nome}`)
-                }
-
-                return (
-                    <form onSubmit={handleSubmit}> 
-                        {/*
-                            Em Jsx o atributo HTML for passa a ser htmlFor(pq em js for é loop etc)
-                        */}
-                        <label htmlFor="campo=nome"> Informe seu nome: </label>
-                        <input id="campo-nome" onChange={handleChange} value={nome}/><br /> {/* No React tags q n fecham devem terminar assim */}
-                        <div>Variavel nome: {nome}</div>
-                        <button type="submit">Enviar</button>
-                    </form>
-                )
-            }        
-
-            ReactDOM.render(<MeuForm />, document.getElementById('root'))
-
-    </script>
 </body>
 </html>
