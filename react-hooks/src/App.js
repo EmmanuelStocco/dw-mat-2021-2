@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Teste1 from './exercicios/Teste1'
 import Teste2 from './exercicios/Teste2'
+import Teste3 from './exercicios/Teste3'
 import Exercicio01 from './exercicios/01'
 import Exercicio02 from './exercicios/02'
 import Exercicio03 from './exercicios/03'
@@ -24,6 +25,9 @@ function App() {
           </li>
           <li>
             <Link to="teste2">Segundo teste</Link>
+          </li>
+          <li>
+            <Link to="teste3"> Terceiro teste </Link>
           </li>
           <li>
             <Link to="ex01">Exercício 01</Link>
@@ -51,6 +55,9 @@ function App() {
           </Route>
           <Route path="/teste2">
             <Teste2 />
+          </Route>
+          <Route path="/teste3">
+            <Teste3 />
           </Route>
           <Route path="/ex01">
             <Exercicio01 />
