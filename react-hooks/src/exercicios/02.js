@@ -1,53 +1,76 @@
 import * as React from 'react'
 
 export default function Exercicio02() {
-    // 💣 exclua essa declaração de variável e substitua por uma chamada a React.useState()  const name = ''  function handleChange(event) {
-    // 🐨 Atualize o nome aqui usando event.target.value  }
-    //const name = ''
-    //o valor inicial da variavel de estado "name" sera lido do 
-    //cookie caso exista. Se  n existir retorna string vazia
+  // 💣 exclua essa declaração de variável e substitua por uma chamada a React.useState()
+  // const name = ''
 
-    //O estado inicial de uma variavel de estado é 
-    //ajustado toda vez q acontece uma atualização
+  // O valor inicial da variável de estado "name" será lido
+  // do cookie, caso exista. Se não existir, será uma string
+  // vazia.
 
-    //usando "lazy initializer"
-    //e executado apenas umma vez na faze de inicialização
-    //(mount) do componente
-    //Para isso, no useState(), em vez de passarmos um valor
-    //passamos uma func que retorna um valor
-    const [name, setName] = React.useState(
-        () => getNameCookie () || ''
-    )
+  // O estado inicial de uma variável de estado é
+  // ajustado toda vez que acontece uma atualização
+  /*
+  const [name, setName] = React.useState(
+    window.localStorage.getItem('react-name') || ''
+  )
+  */
 
-    const [count, setCount] = React.useState(0)
+  // Usando um "lazy initializer"
+  // É executado apenas uma vez, na fase de inicialização
+  // (mount) do componente.
+  // Para isso, no useState(), em vez de passarmos um valor,
+  // PASSAMOS UMA FUNÇÃO que retorna um valor
+  const [name, setName] = React.useState(
+    () => getNameCookie() || ''
+  )
 
-    function getNameCookie (event){
-        console.log("Getting cookies")
-        return localStorage.getItem("react-name")
-    }
+  // Variável de estado para contar a quantidade
+  // de atualizações de estado (e consequentes 
+  // chamadas a useEffect)
+  const [count, setCount] = React.useState(0)
 
-    function handleChange(event){
-        setName(event.target.value)
-    }
+  function getNameCookie() {
+    console.log("Getting cookie!")
+    return localStorage.getItem("react-name")
+  }
 
-    //Esta função é chamada após qualquer atualização de componente
-    //qualquer atualização do componente 
-    //Aramazenar o valor da variavel de estado "nome " em um cookie (localStorage)
-    React.useEffect(()=> {
-        window.localStorage.setItem('react-name', name)
-        setCount(count + 1)
-    }, [name])
+  function handleChange(event) {
+    // 🐨 Atualize o nome aqui usando event.target.value
+    setName(event.target.value)
+  }
 
-    return (
-        <div>
-            <form>
-                <label htmlFor="name">Name: </label>
-                <input onChange={handleChange} id="name" />
-            </form>
-            {name ? <strong>Hello {name}</strong> : 'Please type your name'}
-            <div>
-                Chamadas a useEffect(): {count}
-             </div>
-        </div> 
-       )
+  // Esta função (useEffect()) será chamada após 
+  // qualquer atualização do componente
+
+  // Armazenar o valor da variável de estado "name"
+  // em um cookie (localStorage)
+
+  /*
+    O hook useEffect() aceita dois parâmetros:
+    1) Uma função que será executada como efeito colateral
+       de uma atualização de estado
+    2) Um vetor de dependências, no qual devem ser
+       especificadas as variáveis de estado cuja
+       atualização será monitorada para a a execução da
+       função do primeiro parâmetro
+  */
+  React.useEffect(() => {
+    window.localStorage.setItem('react-name', name)
+    // Incrementa a contagem de chamadas a useEffect()
+    setCount(count + 1)
+  }, [name])
+
+  return (
+    <div>
+      <form>
+        <label htmlFor="name">Name: </label>
+        <input onChange={handleChange} id="name" />
+      </form>
+      {name ? <strong>Hello {name}</strong> : 'Please type your name'}
+      <div>
+        Chamadas a useEffect(): {count}
+      </div>
+    </div>
+  )
 }
