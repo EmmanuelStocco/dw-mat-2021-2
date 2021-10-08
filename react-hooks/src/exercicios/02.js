@@ -59,7 +59,7 @@ export default function Exercicio02() {
     window.localStorage.setItem('react-name', name)
     // Incrementa a contagem de chamadas a useEffect()
     setCount(count + 1)
-  }, [name])
+  }, [name]) //especificiou que deve ser levado em conta somente mudanças na chamada name
 
   return (
     <div>

@@ -41,7 +41,6 @@ function Display({animal}) {
   Quando passamos uma variável de estado de um componente
   INTERNO para um componente mais EXTERNO, dizemos que houve
   uma ELEVAÇÃO DE ESTADO (state lifting).
-
   Ao contrário, quando passamos uma variável de estado de um
   componente EXTERNO de volta a um componente INTERNO, dizemos
   que houve um REBAIXAMENTO DE ESTADO (state colocation).
