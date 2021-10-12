@@ -17,6 +17,7 @@ function Board() {
     // O valor salvo em localStorage está no formato de string.
     // Para transformá-lo novamente em vetor, usamos JSON.parse
     () => JSON.parse(window.localStorage.getItem('jogo-da-velha')) || Array(9).fill(null)
+    //puxa a informação do local storage ou preenche novamente com 9 quadradinhos // dentro do lazi initalizer
   )
 
   // 🐨 We'll need the following bits of derived state:
@@ -86,7 +87,7 @@ function Board() {
     // O estado "squares" é transformado em string para ser 
     // salvo de forma correta no localStorage
     window.localStorage.setItem('jogo-da-velha', JSON.stringify(squares))
-  }, [squares])
+  }, [squares]) //quando ocorrer algo com a variavel squares, exexute esse useEffect
 
   return (
     <div>
