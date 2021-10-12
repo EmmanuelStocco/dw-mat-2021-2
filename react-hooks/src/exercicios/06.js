@@ -138,3 +138,5 @@ export default function Exercicio06() {
     </div>
   )
 }
+
+//teste
