@@ -1,11 +1,13 @@
+/*
 import * as React from 'react'
 
 export default function Exercicio01() {
   // 💣 exclua essa declaração de variável e substitua por uma chamada a React.useState()
-  // const name = '' 
-  const [name, setName] = React.useState('');
+  // const name = ''
+  const [name, setName] = React.useState('')
 
-  function handleChange(event){
+  function handleChange(event) {
+    // 🐨 Atualize o nome aqui usando event.target.value
     setName(event.target.value)
   }
 
@@ -19,3 +21,6 @@ export default function Exercicio01() {
     </div>
   )
 }
+
+*/
+
